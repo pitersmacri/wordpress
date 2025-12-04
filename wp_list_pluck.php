@@ -1,10 +1,21 @@
-<!-- variável recebe um array de títulos das páginas filho de ID 79 -->
-<?php $lists = wp_list_pluck( get_pages("child_of=79"), 'post_title' ); ?>
+<?php
+// Variable receives an array of titles from child pages of ID 79
+$parent_page_id = 79; // Could be made configurable
+$pages = get_pages(array(
+    'child_of' => absint($parent_page_id),
+    'post_status' => 'publish'
+));
 
-<!-- varrendo o array -->
-<?php foreach ($lists as $list) { ?>
+// Extract titles using wp_list_pluck
+$lists = wp_list_pluck($pages, 'post_title');
 
-	<!-- imprimindo o valor -->
-    <?php echo $list; ?>
-
-<?php } ?>
+// Loop through the array
+if (!empty($lists)) {
+    foreach ($lists as $list) {
+        // Safely print the value
+        echo esc_html($list);
+    }
+} else {
+    echo __('No child pages found.', 'textdomain');
+}
+?>
