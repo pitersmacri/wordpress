@@ -1,3 +1,17 @@
+# Ignore vendor directory installed by Composer
+vendor/
+
+# Local IDE configs
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+tmp/
 ```
 # Backup files
 *.php.bak
