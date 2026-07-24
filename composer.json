@@ -1,0 +1,17 @@
+{
+  "name": "wordpress-main/tests-scaffold",
+  "description": "PHPUnit scaffold for wordpress-main",
+  "require-dev": {
+    "phpunit/phpunit": "^10 || ^9.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "WPMain\\": ""
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "WPMain\\Tests\\": "tests/"
+    }
+  }
+}
